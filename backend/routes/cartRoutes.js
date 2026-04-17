@@ -45,4 +45,79 @@ router.get("/",protect,async(req,res)=>{
         return res.status(500).json({message:`error from cart get route ${err}`})
     }
 })
+// Backend Cart Controller Example
+
+// Update cart item quantity
+router.put('/cart/:itemId', async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const { quantity } = req.body;
+    const userId = req.user.id; // Get from auth middleware
+    
+    const updatedCart = await Cart.findOneAndUpdate(
+      { userId, "item._id": itemId },
+      { $set: { "item.$.quantity": quantity } },
+      { new: true }
+    );
+    
+    res.json(updatedCart);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+})
+
+// Remove item from cart
+router.delete('/cart/:itemId', async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const userId = req.user.id;
+    
+    const updatedCart = await Cart.findOneAndUpdate(
+      { userId },
+      { $pull: { item: { _id: itemId } } },
+      { new: true }
+    );
+    
+    res.json(updatedCart);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+})// Backend Cart Controller Example
+
+// Update cart item quantity
+router.put('/cart/:itemId', async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const { quantity } = req.body;
+    const userId = req.user.id; // Get from auth middleware
+    
+    const updatedCart = await Cart.findOneAndUpdate(
+      { userId, "item._id": itemId },
+      { $set: { "item.$.quantity": quantity } },
+      { new: true }
+    );
+    
+    res.json(updatedCart);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+})
+
+// Remove item from cart
+router.delete('/cart/:itemId', async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const userId = req.user.id;
+    
+    const updatedCart = await Cart.findOneAndUpdate(
+      { userId },
+      { $pull: { item: { _id: itemId } } },
+      { new: true }
+    );
+    
+    res.json(updatedCart);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+})
 module.exports=router
