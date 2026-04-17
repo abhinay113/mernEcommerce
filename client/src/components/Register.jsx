@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import API from '../api/axios'
+import { Link } from "react-router-dom"
 
 export default function Register() {
     const [name,setName]=useState("")
@@ -67,7 +68,9 @@ export default function Register() {
                         />
                     </div>
                     <button className='btn w-100' style={{ backgroundColor: 'orange', borderColor: 'orange', color: 'white' }}>Register</button>
-                    
+                    <p style={{ marginTop: "15px", textAlign: "center" }}>Already registered?{" "}
+                        <Link to="/login" style={{ color: "orange", textDecoration: "none", fontWeight: "500" }}>Login here</Link>
+                    </p>
                 </form>
 
             </div>

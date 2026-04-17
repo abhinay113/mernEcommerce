@@ -7,10 +7,9 @@
 }
 
 .navbar a:hover {
-  color: #ffc107; /* yellow hover */
+  color: #ffc107; 
 }
 
-/* spacing tweak for links */
 .nav-link {
   padding: 0;
 }
