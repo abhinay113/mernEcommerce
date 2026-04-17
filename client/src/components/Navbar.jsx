@@ -18,7 +18,7 @@ export default function Navbar() {
     <nav className="navbar navbar-dark bg-dark px-4 d-flex justify-content-between">
 
       {/* LEFT SIDE */}
-      <Link className="navbar-brand text-white" to="/">
+      <Link className="btn btn-danger" to="/">
         Home
       </Link>
 
@@ -28,7 +28,7 @@ export default function Navbar() {
         {token ? (
           <>
             {role === "admin" && (
-              <Link className="nav-link text-white" to="/add-product">
+              <Link className="btn btn-danger" to="/add-product">
                 Add Product
               </Link>
             )}
@@ -45,10 +45,10 @@ export default function Navbar() {
           </>
         ) : (
           <>
-            <Link className="nav-link text-white" to="/login">
+            <Link className="btn btn-danger" to="/login">
               Login
             </Link>
-            <Link className="nav-link text-white" to="/register">
+            <Link className="btn btn-danger" to="/register">
               Register
             </Link>
           </>
