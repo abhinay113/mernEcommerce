@@ -10,42 +10,51 @@ export default function Navbar() {
   function handleLogout() {
     alert("Logged out successfully")
     localStorage.removeItem("token")
-    localStorage.removeItem("role") 
+    localStorage.removeItem("role")
     navigate("/login")
   }
 
   return (
-    <nav className='navbar navbar-dark bg-dark px-3'>
-      <Link className='navbar-brand' to="/">Home</Link>
+    <nav className="navbar navbar-dark bg-dark px-4 d-flex justify-content-between">
 
-      {
-        token ? (
+      {/* LEFT SIDE */}
+      <Link className="navbar-brand text-white" to="/">
+        Home
+      </Link>
+
+      {/* RIGHT SIDE */}
+      <div className="d-flex align-items-center gap-3">
+
+        {token ? (
           <>
             {role === "admin" && (
-              <Link className='nav-item text-white me-3' to="/add-product">
+              <Link className="nav-link text-white" to="/add-product">
                 Add Product
               </Link>
             )}
+
             {role === "user" && (
-              <Link className='nav-item text-white me-3' to="/cart">
+              <Link className="btn btn-danger" to="/cart">
                 Cart
               </Link>
             )}
-            <button className='btn btn-danger' onClick={handleLogout}>
+
+            <button className="btn btn-danger" onClick={handleLogout}>
               Logout
             </button>
           </>
         ) : (
           <>
-            <Link className='nav-item text-white me-3' to="/login">
+            <Link className="nav-link text-white" to="/login">
               Login
             </Link>
-            <Link className='nav-item text-white' to="/register">
+            <Link className="nav-link text-white" to="/register">
               Register
             </Link>
           </>
-        )
-      }
+        )}
+
+      </div>
     </nav>
   )
 }

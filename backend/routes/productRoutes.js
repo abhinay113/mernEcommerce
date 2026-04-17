@@ -6,7 +6,6 @@ const Product=require("../models/Product")
 router.post("/add",protect,authorize,async(req,res)=>{
     try{
         const {name,price,image,description}=req.body
-        console.log("add---------",name)
         const newProduct=await Product.create({
             name,image,price,description
         })

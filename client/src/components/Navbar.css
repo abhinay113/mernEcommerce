@@ -1,20 +1,16 @@
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 30px;
-  background-color: orange;
-  padding: 12px 40px;
-}
+/* Optional custom styling (Bootstrap already handles layout well) */
 
 .navbar a {
-  color: white;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 500;
   transition: 0.3s;
 }
 
 .navbar a:hover {
-  color: black;
+  color: #ffc107; /* yellow hover */
+}
+
+/* spacing tweak for links */
+.nav-link {
+  padding: 0;
 }
