@@ -4,7 +4,7 @@ import API from "../api/axios";
 function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
- const role=localStorage.getItem("user.role")
+ const role=localStorage.getItem("role")
   useEffect(() => {
     fetchProducts();
   }, []);
